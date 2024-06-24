@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000';
+// const API_URL = 'API_URL';
+const API_URL = 'https://social-media-dashboard-backend-1.onrender.com';
+
 
 export const getMetrics = () => {
   const token = localStorage.getItem('token');
