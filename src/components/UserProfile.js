@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Container, Avatar } from '@mui/material';
+import { TextField, Button, Typography, Container, Avatar, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getUserDetails, updateUserDetails, uploadProfilePic } from '../api/api';
+
+const API_URL = 'https://social-media-dashboard-backend-1.onrender.com';
 
 const UserProfile = () => {
   const [user, setUser] = useState({});
@@ -55,14 +57,15 @@ const UserProfile = () => {
       }
     }
   };
+  
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: '80px' }}>
+    <Container maxWidth="xs" sx={{ mt: 5 }}>
       <Typography variant="h4" align="center" gutterBottom>
         User Profile
       </Typography>
       <Avatar
-        src={user.profilePic ? `http://localhost:5000/${user.profilePic}` : ''}
+        src={user.profilePic ? `${API_URL}/${user.profilePic}` : ''}        
         alt={user.username}
         sx={{ width: 100, height: 100, margin: '0 auto 20px' }}
       />
@@ -87,39 +90,42 @@ const UserProfile = () => {
           value={dateOfBirth}
           onChange={(e) => setDateOfBirth(e.target.value)}
         />
-        <Button
-          variant="contained"
-          component="label"
-          fullWidth
-          style={{ marginTop: '20px' }}
-        >
-          Upload Profile Picture
-          <input
-            type="file"
-            hidden
-            accept="image/*"
-            onChange={handleProfilePicUpload}
-          />
-        </Button>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          style={{ marginTop: '20px' }}
-        >
-          Update Profile
-        </Button>
+        <Box mt={3}>
+          <Button
+            variant="contained"
+            component="label"
+            fullWidth
+          >
+            Upload Profile Picture
+            <input
+              type="file"
+              hidden
+              accept="image/*"
+              onChange={handleProfilePicUpload}
+            />
+          </Button>
+        </Box>
+        <Box mt={2}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+          >
+            Update Profile
+          </Button>
+        </Box>
       </form>
-      <Button
-        component={Link}
-        to="/dashboard"
-        variant="outlined"
-        fullWidth
-        style={{ marginTop: '20px' }}
-      >
-        Back to Dashboard
-      </Button>
+      <Box mt={3} mb={2}>
+        <Button
+          component={Link}
+          to="/dashboard"
+          variant="outlined"
+          fullWidth
+        >
+          Back to Dashboard
+        </Button>
+      </Box>
     </Container>
   );
 };

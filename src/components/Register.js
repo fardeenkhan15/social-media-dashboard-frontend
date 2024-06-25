@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { TextField, Button, Typography, Container } from '@mui/material';
+import { TextField, Button, Typography, Container, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { register } from '../api/api';
@@ -26,7 +25,7 @@ const Register = () => {
   };
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: '80px' }}>
+    <Container maxWidth="xs" sx={{ mt: 5 }}>
       <Typography variant="h4" align="center" gutterBottom>
         Register
       </Typography>
@@ -81,14 +80,16 @@ const Register = () => {
           value={dateOfBirth}
           onChange={(e) => setDateOfBirth(e.target.value)}
         />
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-        >
-          Register
-        </Button>
+        <Box mt={3} mb={2}>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+          >
+            Register
+          </Button>
+        </Box>
       </form>
     </Container>
   );

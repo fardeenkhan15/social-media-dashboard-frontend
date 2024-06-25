@@ -90,7 +90,7 @@ const Login = ({ setToken, setUsername }) => {
   };
 
   return (
-    <Container maxWidth="xs" style={{ marginTop: '80px' }}>
+    <Container maxWidth="xs" sx={{ mt: 5 }}>
       <Typography variant="h4" align="center" gutterBottom>
         Login
       </Typography>

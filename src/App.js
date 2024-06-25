@@ -22,7 +22,7 @@ const App = () => {
     <Router>
       <Navbar handleLogout={handleLogout} isLoggedIn={!!token} />
       <ToastContainer />
-      <div style={{ marginTop: '80px' }}> {/* Adjust the margin as needed */}
+      <div style={{ marginTop: '10px' }}> {/* Adjust the margin as needed */}
         <Routes>
           <Route path="/login" element={<Login setToken={setToken} setUsername={setUsername} />} />
           <Route path="/register" element={<Register />} />

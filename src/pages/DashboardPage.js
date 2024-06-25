@@ -7,6 +7,17 @@ import PieChartComponent from '../components/PieChartComponent';
 import SummarySection from '../components/SummarySection';
 import { getMetrics, addMetric, updateMetric, deleteMetric, getUserDetails } from '../api/api';
 import { Link } from 'react-router-dom';
+import GroupIcon from '@mui/icons-material/Group';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import CommentIcon from '@mui/icons-material/Comment';
+import ShareIcon from '@mui/icons-material/Share';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import ChatIcon from '@mui/icons-material/Chat';
+
+const API_URL = 'https://social-media-dashboard-backend-1.onrender.com';
+
 
 const DashboardPage = ({ username }) => {
   const [metrics, setMetrics] = useState([]);
@@ -20,20 +31,21 @@ const DashboardPage = ({ username }) => {
   }, []);
 
   const predefinedMetrics = [
-    { id: 'followers', name: 'Followers', category: 'Audience', icon: 'group' },
-    { id: 'likes', name: 'Likes', category: 'Engagement', icon: 'thumb_up' },
-    { id: 'comments', name: 'Comments', category: 'Engagement', icon: 'comment' },
-    { id: 'shares', name: 'Shares', category: 'Engagement', icon: 'share' },
-    { id: 'impressions', name: 'Impressions', category: 'Reach', icon: 'visibility' },
-    { id: 'clicks', name: 'Clicks', category: 'Traffic', icon: 'touch_app' },
-    { id: 'videoViews', name: 'Video Views', category: 'Content', icon: 'videocam' },
-    { id: 'mentions', name: 'Brand Mentions', category: 'Brand', icon: 'chat' },
+    { id: 'followers', name: 'Followers', category: 'Audience', icon: <GroupIcon /> },
+    { id: 'likes', name: 'Likes', category: 'Engagement', icon: <ThumbUpIcon /> },
+    { id: 'comments', name: 'Comments', category: 'Engagement', icon: <CommentIcon /> },
+    { id: 'shares', name: 'Shares', category: 'Engagement', icon: <ShareIcon /> },
+    { id: 'impressions', name: 'Impressions', category: 'Reach', icon: <VisibilityIcon /> },
+    { id: 'clicks', name: 'Clicks', category: 'Traffic', icon: <TouchAppIcon /> },
+    { id: 'videoViews', name: 'Video Views', category: 'Content', icon: <VideocamIcon /> },
+    { id: 'mentions', name: 'Brand Mentions', category: 'Brand', icon: <ChatIcon /> },
   ];
+  
 
   const fetchUserDetails = async () => {
     try {
       const response = await getUserDetails();
-      setUserProfilePic(response.data.profilePic ? `http://localhost:5000/${response.data.profilePic}` : '');
+      setUserProfilePic(response.data.profilePic ? `${API_URL}/${response.data.profilePic}` : '');
     } catch (error) {
       console.error('Error fetching user details:', error);
     }
