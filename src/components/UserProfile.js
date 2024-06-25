@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField, Button, Typography, Container, Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { getUserDetails, updateUserDetails, uploadProfilePic } from '../api';
+import { getUserDetails, updateUserDetails, uploadProfilePic } from '../api/api';
 
 const UserProfile = () => {
   const [user, setUser] = useState({});

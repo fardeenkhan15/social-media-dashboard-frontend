@@ -5,7 +5,7 @@ import TrendsChart from '../components/TrendsChart';
 import BarChartComponent from '../components/BarChartComponent';
 import PieChartComponent from '../components/PieChartComponent';
 import SummarySection from '../components/SummarySection';
-import { getMetrics, addMetric, updateMetric, deleteMetric, getUserDetails } from '../api';
+import { getMetrics, addMetric, updateMetric, deleteMetric, getUserDetails } from '../api/api';
 import { Link } from 'react-router-dom';
 
 const DashboardPage = ({ username }) => {

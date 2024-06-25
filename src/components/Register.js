@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { register } from '../api';
+import { register } from '../api/api';
 
 const Register = () => {
   const [username, setUsername] = useState('');

@@ -67,7 +67,7 @@ import React, { useState } from 'react';
 import { TextField, Button, Typography, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { login } from '../api';
+import { login } from '../api/api';
 
 const Login = ({ setToken, setUsername }) => {
   const [loginInput, setLoginInput] = useState('');
