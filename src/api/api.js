@@ -3,6 +3,17 @@ import axios from 'axios';
 // const API_URL = 'API_URL';
 const API_URL = 'https://social-media-dashboard-backend-1.onrender.com';
 
+const handleAxiosError = (error) => {
+  if (error.response) {
+    console.error('Server responded with a status other than 2xx:', error.response.status);
+    console.error('Response data:', error.response.data);
+  } else if (error.request) {
+    console.error('Request was made but no response was received:', error.request);
+  } else {
+    console.error('Error in setting up the request:', error.message);
+  }
+  console.error('Error config:', error.config);
+};
 
 export const getMetrics = () => {
   const token = localStorage.getItem('token');
@@ -32,7 +43,7 @@ export const deleteMetric = (id, token) => {
 };
 
 export const login = (loginInput, password) => {
-  return axios.post(`${API_URL}/login`, { login: loginInput, password });
+  return axios.post(`${API_URL}/login`, { login: loginInput, password }).catch(handleAxiosError);
 };
 
 
