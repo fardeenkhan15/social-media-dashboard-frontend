@@ -24,6 +24,7 @@ export const updateMetric = (id, metric, token) => {
   });
 };
 
+
 export const deleteMetric = (id, token) => {
   return axios.delete(`${API_URL}/metrics/${id}`, {
     headers: { 'Authorization': `Bearer ${token}` }
